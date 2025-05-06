@@ -9,6 +9,8 @@ import "./App.css"; // Ensure styles are imported
 import"bootstrap/dist/js/bootstrap.min.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutUs from "./components/Aboutus";
+import Chatbox from "./components/Chatbox";
+
 function App() {
   return (
     <Router>
@@ -30,6 +32,8 @@ function App() {
           <Route path="/addproducts" element={<Addproducts />} />
           <Route path="/makepayment" element={<Makepayment/>} />
           < Route path="/aboutus" element={<AboutUs/>} />
+          <Route path="/chatbox" element={<Chatbox />} />
+
         </Routes>
       </div>
     </Router>

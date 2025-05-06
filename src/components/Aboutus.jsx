@@ -1,39 +1,45 @@
 import Footer from './Footer';
- 
 
 const Aboutus = () => {
   return (
-    <div className="row justify-content-center">
- 
+    <div className="container my-5">
+      <h1 className="display-4 text-danger text-center mb-4">About Us</h1>
 
-        <h1 className='display-4 text-danger'>About Us</h1>
- 
-
-        <div className="col-md-6">
-            <div className="card shadow p-4 m-3">
-                <img src="images/download.jfif" alt="our team" />
-            </div>
+      <div className="row justify-content-center">
+        {/* Team Image */}
+        <div className="col-md-6 mb-4 mb-md-0">
+          <div className="card shadow p-4">
+            <img
+              src="images/download.jfif"
+              alt="Our Team"
+              className="img-fluid rounded"
+            />
+          </div>
         </div>
-        <div className="col-md-6 justify-content-start">
-            <h2 className='text-success'>Members:</h2>
-            <ul >
-                <li>Joyce : CEO</li>
-                <li>Bernard: COO</li>
-                <li>Joseph: Member</li>
-                <li>Mary: Member</li>
-            </ul>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque dicta atque, voluptatum minima iste nulla animi excepturi laboriosam? Cum impedit exercitationem minus dolor velit itaque?</p>
- 
 
-            <h3 className='text-primary'>Over 30+ services, over 1200+ customers served...</h3>
- 
+        {/* Team Details */}
+        <div className="col-md-6 text-start">
+          <h2 className="text-success">Our Team:</h2>
+          <ul className="list-unstyled">
+            <li><strong>Michael Omollo</strong>: CEO</li>
+            <li><strong>Josephine Elime</strong>: COO</li>
+            <li><strong>Elizabeth Akinyi</strong>: Member</li>
+            <li><strong>Kateri Amelia</strong>: Member</li>
+          </ul>
+          <p>
+            Frankizah Shoes is powered by a passionate team dedicated to
+            providing you with the best in style, comfort, and customer service. 
+            Our mission is to deliver quality footwear for every occasion.
+          </p>
 
-           
+          <h3 className="text-primary">Serving over 1200+ satisfied customers with 30+ shoe styles!</h3>
         </div>
-        <Footer/>
+      </div>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
-  )
-}
- 
+  );
+};
 
 export default Aboutus;
