@@ -22,6 +22,7 @@ const Footer = () => {
           <div className="col-md-4 text-light">
             <h4 className="text-info">Connect With Us</h4>
             <br />
+        
             <div className="d-flex justify-content-center">
               <a href="https://facebook.com" className="mx-2">
                 <img src="images/facebook.png" alt="Facebook" className="socialspictures" />
@@ -29,6 +30,16 @@ const Footer = () => {
               <a href="https://instagram.com" className="mx-2">
                 <img src="images/ig.jfif" alt="Instagram" className="socialspictures" />
               </a>
+              <a href="https://instagram.com" className="mx-2">
+                <img src="images/x.png" alt="twitter" className="socialspictures" />
+              </a>
+              <video
+               src="videos/secondvideo.mp4"
+               autoPlay
+               muted
+               loop
+               className="w-100 mt-4"
+              ></video> 
             </div>
             <p className="text-light mt-2">Follow us on social media for the latest shoe trends, offers, and exclusive deals.</p>
           </div>

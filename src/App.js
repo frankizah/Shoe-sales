@@ -9,6 +9,7 @@ import "./App.css"; // Ensure styles are imported
 import"bootstrap/dist/js/bootstrap.min.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutUs from "./components/Aboutus";
+import Notfound from './components/Notfound';
 import Chatbox from "./components/Chatbox";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/addproducts" element={<Addproducts />} />
           <Route path="/makepayment" element={<Makepayment/>} />
           < Route path="/aboutus" element={<AboutUs/>} />
+          <Route path='/*' element={<Notfound/>}/>
           <Route path="/chatbox" element={<Chatbox />} />
 
         </Routes>

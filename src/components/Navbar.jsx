@@ -31,6 +31,9 @@ const Navbar = () => {
             <li className="nav-item">
               <b><Link to="/chatbox" className="nav-link">Chatbox</Link></b>
             </li>
+            <li className="nav-item">
+              <b><Link to="/cartcontext" className="nav-link">Cart Context</Link></b>
+            </li>
           </ul>
 
           {/* Authorization Links */}

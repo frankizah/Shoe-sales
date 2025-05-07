@@ -43,6 +43,7 @@ const Getproducts = () => {
         
    
         <div className="container mt-4">
+          <ImageCarousel/>
         <h3 className="mt-3 text-center text-danger">Available Shoes</h3>
        
 
