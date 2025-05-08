@@ -31,13 +31,14 @@ const Navbar = () => {
             <li className="nav-item">
               <b><Link to="/chatbox" className="nav-link">Chatbox</Link></b>
             </li>
-            <li className="nav-item">
-              <b><Link to="/cartcontext" className="nav-link">Cart Context</Link></b>
-            </li>
+           
           </ul>
 
           {/* Authorization Links */}
           <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
+              <b><Link to="/cart" className="nav-link">Cart</Link></b>
+            </li>
             <li className="nav-item">
               <b><Link to="/aboutus" className="nav-link">About us</Link></b>
             </li>
@@ -47,6 +48,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link to="/signup" className="btn btn-primary">Sign UP</Link>
             </li>
+          
           </ul>
         </div>
       </nav>

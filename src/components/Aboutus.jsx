@@ -9,11 +9,13 @@ const Aboutus = () => {
         {/* Team Image */}
         <div className="col-md-6 mb-4 mb-md-0">
           <div className="card shadow p-4">
-            <img
-              src="images/download.jfif"
-              alt="Our Team"
-              className="img-fluid rounded"
-            />
+          <video
+      src="videos/video1.mp4"
+      autoPlay
+      muted
+      loop
+      className="w-100"
+    ></video>
           </div>
         </div>
 
