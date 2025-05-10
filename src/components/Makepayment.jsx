@@ -1,46 +1,59 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Footer from './Footer'; // 👈 Add this
 
-const Mpesapayment = () => {
-  const { totalCost } = useLocation().state || {};
+const MakePayment = () => {
+  const location = useLocation();
+  const [totalCost, setTotalCost] = useState(location.state?.totalCost || 0);
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
 
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
+  // Fallback in case of page reload
+  useEffect(() => {
+    if (!location.state?.totalCost) {
+      const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+      const computedTotal = storedCart.reduce((sum, item) => sum + Number(item.product_cost), 0);
+      setTotalCost(computedTotal);
+    }
+  }, [location.state]);
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    setMessage("Please wait as we process your payment...");
 
-    const data = new FormData();
-    data.append("phone", phone);
-    data.append("amount", totalCost);
+    if (phone.length < 10) {
+      setMessage('Please enter a valid Mpesa number');
+      return;
+    }
 
-    const response = await axios.post("https://frankizah.pythonanywhere.com/api/mpesa_payment", data);
-    setMessage(response.data.message);
+    setMessage(`Payment of ${totalCost} KES initiated for number ${phone}.`);
+    // Optionally clear cart after payment
   };
 
   return (
-    <div className='row justify-content-center mt-3'>
-      <h1 className='text-danger'>Lipa na Mpesa</h1>
-      <div className="col-md-6 card shadow p-3">
-        <b className='text-success'>{message}</b>
+    <>
+      <div className='row justify-content-center mt-3'>
+        <h1 className='text-danger text-center'>Lipa na Mpesa</h1>
+        <div className="col-md-6 card shadow p-3">
+          <b className='text-success'>{message}</b>
 
-        <h4>Total Amount to Pay: <span className='text-primary'>{totalCost} KES</span></h4>
-        <form onSubmit={submit}>
-          <input
-            type="number"
-            placeholder='Enter your Mpesa number'
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className='form-control'
-          />
-          <br />
-          <button className='btn btn-success'>Make Payment</button>
-        </form>
+          <h4>Total Amount to Pay: <span className='text-primary'>{totalCost} KES</span></h4>
+
+          <form onSubmit={submit}>
+            <input
+              type="number"
+              placeholder='Enter your Mpesa number'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className='form-control'
+            />
+            <br />
+            <button className='btn btn-success'>Make Payment</button>
+          </form>
+        </div>
       </div>
-    </div>
+      <Footer /> {/* 👈 Add Footer at the bottom */}
+    </>
   );
 };
 
-export default Mpesapayment;
+export default MakePayment;

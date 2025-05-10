@@ -20,7 +20,7 @@ const Getproducts = () => {
     try {
       const response = await axios.get("https://frankizah.pythonanywhere.com/api/getproducts");
       setProducts(response.data);
-      setError("");
+      setError(""); // Clear error if successful
     } catch (error) {
       setError("There was an error retrieving the products.");
     } finally {
@@ -67,7 +67,7 @@ const Getproducts = () => {
 
       {/* No results message */}
       {!loading && filtered_products.length === 0 && (
-        <p className="text-muted text-center">No products found.</p>
+        <p className="text-muted text-center">No products found. Please try again later or adjust your search.</p>
       )}
 
       {/* Products Grid */}
@@ -75,9 +75,10 @@ const Getproducts = () => {
         {filtered_products.map((product) => (
           <div key={product.id} className="col-md-3 justify-content-center mb-4">
             <div className="card shadow-sm h-100">
+              {/* Use default image if product image is missing */}
               <img
                 className="card-img-top p-3"
-                src={img_url + product.product_photo}
+                src={product.product_photo ? img_url + product.product_photo : "/default-image.jpg"}
                 alt={product.product_name}
                 style={{ height: "200px", objectFit: "cover" }}
               />
